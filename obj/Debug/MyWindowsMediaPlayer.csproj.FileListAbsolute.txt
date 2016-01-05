@@ -8,3 +8,12 @@ C:\Users\Guillaume\Documents\Epitech\MyWindowsMediaPlayer\obj\Debug\MyWindowsMed
 C:\Users\Guillaume\Documents\Epitech\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csproj.GenerateResource.Cache
 C:\Users\Guillaume\Documents\Epitech\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.exe
 C:\Users\Guillaume\Documents\Epitech\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.pdb
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\bin\Debug\MyWindowsMediaPlayer.exe.config
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.exe
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.pdb
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\bin\Debug\MyWindowsMediaPlayer.exe
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\bin\Debug\MyWindowsMediaPlayer.pdb
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csprojResolveAssemblyReference.cache
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.BaseWindow.resources
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.Properties.Resources.resources
+C:\Users\Sandro\Documents\MyWindowsMediaPlayer\obj\Debug\MyWindowsMediaPlayer.csproj.GenerateResource.Cache

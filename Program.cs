@@ -18,5 +18,9 @@ namespace MyWindowsMediaPlayer
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BaseWindow());
         }
+
+        static void cetteFonctionNeSertARien()
+        {
+        }
     }
 }
