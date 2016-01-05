@@ -20,6 +20,8 @@
             base.Dispose(disposing);
         }
 
+        private System.Windows.Forms.ToolStrip runtimeToolStrip;
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,15 +31,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseWindow));
+            this.runtimeToolStrip = new System.Windows.Forms.ToolStrip();
             this.SuspendLayout();
+            // 
+            // runtimeToolStrip
+            // 
+            resources.ApplyResources(this.runtimeToolStrip, "runtimeToolStrip");
+            this.runtimeToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.runtimeToolStrip.Name = "runtimeToolStrip";
+            this.runtimeToolStrip.ShowItemToolTips = false;
             // 
             // BaseWindow
             // 
             resources.ApplyResources(this, "$this");
             this.AllowDrop = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.runtimeToolStrip);
             this.Name = "BaseWindow";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
