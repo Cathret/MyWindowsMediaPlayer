@@ -1,2 +1,2 @@
 # MyWindowsMediaPlayer
-Parce que Blih c'est de la merde
+Parce que Blih c'est de la merde.
