@@ -12,8 +12,8 @@
 
         <Menu>
             <MenuItem Header="_Fichier">
-                <MenuItem Header="_Ouvrir fichier.." Command="ApplicationCommands.Open"/>
-                <MenuItem Header="_Ouvrir fichier récent..">
+                <MenuItem Header="_Ouvrir fichier.." Command="{Binding OpenFile}"/>
+                <MenuItem Header="_Ouvrir fichier récent.." Command="{Binding OpenRecent}">
                     <MenuItem Header="_FILE" Command="ApplicationCommands.Open"/>
                 </MenuItem>
             </MenuItem>
@@ -27,10 +27,10 @@
                 <MenuItem Header="_Modifier la playlist.." Command="{Binding ModifyPlaylist}"/>
                 <MenuItem Header="_Supprimer la playlist.." Command="{Binding DeletePlaylist}"/>
             </MenuItem>
-            <MenuItem Header="Bibliothèque" Command="{Binding OpenBibliotheque}"/>
+            <MenuItem Header="_Bibliothèque" Command="{Binding OpenBibliotheque}"/>
         </Menu>
 
-        <MediaElement Grid.Row="1"/>
+        <MediaElement x:Name="_mediaPlayer" Grid.Row="1"/>
 
         <Menu Grid.Row="2">
             <Button Content="Button"/>
