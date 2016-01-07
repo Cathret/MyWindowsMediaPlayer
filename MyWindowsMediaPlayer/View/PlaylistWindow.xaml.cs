@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyWindowsMediaPlayer
+namespace MyWindowsMediaPlayer.View
 {
     /// <summary>
-    /// Interaction logic for ViewWindow.xaml
+    /// Interaction logic for PlaylistWindow.xaml
     /// </summary>
-    public partial class ViewWindow : Window
+    public partial class PlaylistWindow : Window
     {
-        public  ViewWindow()
+        public PlaylistWindow()
         {
             InitializeComponent();
         }
