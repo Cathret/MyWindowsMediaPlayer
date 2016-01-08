@@ -155,22 +155,21 @@ namespace MyWindowsMediaPlayer.Model
         #region ClickPlay
         static public bool Play_CanExecute(object parameter)
         {
-            MediaElement media = parameter as MediaElement;
-            return ((media == null)? false : true);
+            return (true);
         }
 
         static public void Play_Execute(object parameter)
         {
             MediaElement media = parameter as MediaElement;
             media.Play();
+            MessageBox.Show("LALALALAL");
         }
         #endregion
 
         #region ClickPause
         static public bool Pause_CanExecute(object parameter)
         {
-            MediaElement media = parameter as MediaElement;
-            return ((media == null) ? false : true);
+            return (true);
         }
 
         static public void Pause_Execute(object parameter)
@@ -183,8 +182,7 @@ namespace MyWindowsMediaPlayer.Model
         #region ClickStop
         static public bool Stop_CanExecute(object parameter)
         {
-            MediaElement media = parameter as MediaElement;
-            return ((media == null) ? false : true);
+            return (true);
         }
 
         static public void Stop_Execute(object parameter)
