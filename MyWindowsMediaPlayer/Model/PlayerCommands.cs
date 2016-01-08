@@ -39,7 +39,6 @@ namespace MyWindowsMediaPlayer.Model
                 string  fileName = dlg.FileName;
                 media.Source = new Uri(fileName, UriKind.Relative);
                 media.Play();
-                MessageBox.Show("Finished playing media || MEDIA ? " + media.Source.ToString());
             }
         }
         #endregion
@@ -176,6 +175,7 @@ namespace MyWindowsMediaPlayer.Model
         {
             MediaElement media = parameter as MediaElement;
             media.Pause();
+            MessageBox.Show("LALALALAL");
         }
         #endregion
 
