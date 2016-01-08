@@ -104,7 +104,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\buttonStop.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\buttonPause.png" />
     <Resource Include="Assets\buttonFullScreen.png" />
