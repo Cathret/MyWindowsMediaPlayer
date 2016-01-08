@@ -161,7 +161,6 @@ namespace MyWindowsMediaPlayer.Model
         {
             MediaElement media = parameter as MediaElement;
             media.Play();
-            MessageBox.Show("LALALALAL");
         }
         #endregion
 
@@ -188,7 +187,6 @@ namespace MyWindowsMediaPlayer.Model
         {
             MediaElement media = parameter as MediaElement;
             media.Stop();
-            MessageBox.Show("LALALALAL");
         }
         #endregion
 
