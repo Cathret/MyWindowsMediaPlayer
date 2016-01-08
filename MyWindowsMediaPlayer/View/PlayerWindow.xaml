@@ -12,7 +12,8 @@
 
         <Menu>
             <MenuItem Header="_Fichier">
-                <MenuItem Header="_Ouvrir fichier.." Command="{Binding OpenFile}"/>
+                <MenuItem Header="_Ouvrir fichier.." Command="{Binding OpenFile}"
+                          CommandParameter="{Binding ElementName=MediaElementPlayer}"/>
                 <MenuItem Header="_Ouvrir fichier récent.." Command="{Binding OpenRecent}">
                     <MenuItem Header="_FILE" Command="ApplicationCommands.Open"/>
                 </MenuItem>
@@ -30,10 +31,11 @@
             <MenuItem Header="_Bibliothèque" Command="{Binding OpenBibliotheque}"/>
         </Menu>
 
-        <MediaElement x:Name="_mediaPlayer" Grid.Row="1"/>
+        <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual"
+                        Stretch="UniformToFill" Grid.Row="1"/>
 
         <Menu Grid.Row="2">
-            <Button Content="Button"/>
+            <Button Content="Button" Click="Button_Click"/>
             <Button Content="Button"/>
         </Menu>
         
