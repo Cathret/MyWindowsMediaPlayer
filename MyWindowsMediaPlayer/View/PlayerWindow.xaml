@@ -36,17 +36,11 @@
 
         <Menu Grid.Row="2">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
-                    Height="20" Width="20">
-                <Image Source="Assets/buttonPlay.png"/>
-            </Button>
+                    Height="20" Width="20" Content="{StaticResource PlayImage}"/>
             <Button Command="{Binding ClickPause}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
-                    Height="20" Width="20">
-                <Image Source="Assets/buttonPause.png"/>
-            </Button>
+                    Height="20" Width="20" Content="{StaticResource PauseImage}"/>
             <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
-                    Height="20" Width="20">
-                <Image Source="Assets/buttonPlay.png"/>
-            </Button>
+                    Height="20" Width="20" Content="{StaticResource StopImage}"/>
         </Menu>
         
         <StatusBar Grid.Row="3" Background="Black">

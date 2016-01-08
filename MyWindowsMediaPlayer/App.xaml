@@ -3,5 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View/PlayerWindow.xaml">
     <Application.Resources>
+        <Image x:Key="PlayImage" Source="Assets/buttonPlay.png"/>
+        <Image x:Key="PauseImage" Source="Assets/buttonPause.png"/>
+        <Image x:Key="StopImage" Source="Assets/buttonPause.png"/>
     </Application.Resources>
 </Application>
