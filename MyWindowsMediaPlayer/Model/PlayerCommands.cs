@@ -175,7 +175,6 @@ namespace MyWindowsMediaPlayer.Model
         {
             MediaElement media = parameter as MediaElement;
             media.Pause();
-            MessageBox.Show("LALALALAL");
         }
         #endregion
 
