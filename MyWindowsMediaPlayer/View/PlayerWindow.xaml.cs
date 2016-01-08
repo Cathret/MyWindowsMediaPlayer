@@ -18,8 +18,7 @@ namespace MyWindowsMediaPlayer.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("TOTO");
-            MediaElementPlayer.Source = new Uri("C:\\Users\\Guillaume\\Music\\Lolilol.mp3");
+            MediaElementPlayer.Source = new Uri("https://www.youtube.com/embed/R-morg7h7Xk");
             MediaElementPlayer.Volume = 1;
             MediaElementPlayer.Play();
         }
