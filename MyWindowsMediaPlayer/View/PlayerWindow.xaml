@@ -32,11 +32,12 @@
         </Menu>
 
         <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual"
-                        Stretch="UniformToFill" Grid.Row="1"/>
+                        Stretch="Uniform" Grid.Row="1"/>
 
         <Menu Grid.Row="2">
-            <Button Content="Button" Click="Button_Click"/>
-            <Button Content="Button"/>
+            <Button Command="{Binding ClickPlay}"/>
+            <Button Command="{Binding ClickPause}"/>
+            <Button Command="{Binding ClickStop}"/>
         </Menu>
         
         <StatusBar Grid.Row="3" Background="Black">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
-using MyWindowsMediaPlayer.View;
+using MyWindowsMediaPlayer.ViewModel;
 
 namespace MyWindowsMediaPlayer.Model
 {
@@ -27,19 +27,17 @@ namespace MyWindowsMediaPlayer.Model
             OpenFileDialog dlg = new OpenFileDialog();
 
             dlg.InitialDirectory = "c:\\";
-            dlg.Filter = "All supported files (*.mp3,*.wav,*.mpeg,*.wmv,*.avi,*.mp4)|*.mp3;*.wav;*.mpeg;*.wmv;*.avi;*.mp4|All files (*.*)|*.*";
+            dlg.Filter = "Some supported files (*.mp3,*.wav,*.mpeg,*.wmv,*.avi,*.mp4,*.png,*.jpg)|*.mp3;*.wav;*.mpeg;*.wmv;*.avi;*.mp4;*.png;*.jpg|All files (*.*)|*.*";
             dlg.FilterIndex = 1;
             dlg.RestoreDirectory = true;
 
             Nullable<bool> result = dlg.ShowDialog();
 
-            // Get the selected file name and display in a TextBox
             if (result == true)
             {
                 // Open document
-                string fileName = dlg.FileName;
+                string  fileName = dlg.FileName;
                 media.Source = new Uri(fileName, UriKind.Relative);
-                media.Volume = 1;
                 media.Play();
                 MessageBox.Show("Finished playing media || Filename ? " + fileName);
             }
@@ -86,8 +84,8 @@ namespace MyWindowsMediaPlayer.Model
         static public void Open_Execute(object parameter)
         {
 #warning "Doit retourner la valeur de ce qu'on est cense ouvrir"
-            var newWin = new PlaylistWindow();
-            newWin.Show();
+            //var newWin = new PlaylistWindow();
+            //newWin.Show();
         }
         #endregion
 
@@ -102,8 +100,8 @@ namespace MyWindowsMediaPlayer.Model
         static public void Add_Execute(object parameter)
         {
 #warning "Doit retourner la valeur de ce qu'on est cense utiliser pour l'ajout"
-            var newWin = new PlaylistWindow();
-            newWin.Show();
+            //var newWin = new PlaylistWindow();
+            //newWin.Show();
         }
         #endregion
 
@@ -130,8 +128,8 @@ namespace MyWindowsMediaPlayer.Model
         static public void Modify_Execute(object parameter)
         {
 #warning "Doit retourner la valeur de ce qu'on est cense modifier"
-            var newWin = new PlaylistWindow();
-            newWin.Show();
+            //var newWin = new PlaylistWindow();
+            //newWin.Show();
         }
 
         #endregion
@@ -145,8 +143,54 @@ namespace MyWindowsMediaPlayer.Model
         static public void Delete_Execute(object parameter)
         {
 #warning "Doit retourner la valeur de ce qu'on est cense supprimer"
-            var newWin = new PlaylistWindow();
-            newWin.Show();
+            //var newWin = new PlaylistWindow();
+            //newWin.Show();
+        }
+        #endregion
+
+        #endregion
+
+        #region MenuLecture
+
+        #region ClickPlay
+        static public bool Play_CanExecute(object parameter)
+        {
+            MediaElement media = parameter as MediaElement;
+            return ((media == null)? false : true);
+        }
+
+        static public void Play_Execute(object parameter)
+        {
+            MediaElement media = parameter as MediaElement;
+            media.Play();
+        }
+        #endregion
+
+        #region ClickPause
+        static public bool Pause_CanExecute(object parameter)
+        {
+            MediaElement media = parameter as MediaElement;
+            return ((media == null) ? false : true);
+        }
+
+        static public void Pause_Execute(object parameter)
+        {
+            MediaElement media = parameter as MediaElement;
+            media.Pause();
+        }
+        #endregion
+
+        #region ClickStop
+        static public bool Stop_CanExecute(object parameter)
+        {
+            MediaElement media = parameter as MediaElement;
+            return ((media == null) ? false : true);
+        }
+
+        static public void Stop_Execute(object parameter)
+        {
+            MediaElement media = parameter as MediaElement;
+            media.Stop();
         }
         #endregion
 

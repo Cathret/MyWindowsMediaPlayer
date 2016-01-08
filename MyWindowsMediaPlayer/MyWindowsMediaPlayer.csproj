@@ -104,8 +104,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Resource Include="Assets\buttonDraw.png" />
+    <Resource Include="Assets\buttonFullScreen.png" />
+    <Resource Include="Assets\buttonNext.png" />
+    <Resource Include="Assets\buttonNormalScreen.png" />
+    <Resource Include="Assets\buttonPlay.png" />
+    <Resource Include="Assets\buttonPrev.png" />
+    <Resource Include="Assets\buttonVolumMax.png" />
+    <Resource Include="Assets\buttonVolumOff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
