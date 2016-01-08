@@ -35,13 +35,16 @@
                         Stretch="Uniform" Grid.Row="1"/>
 
         <Menu Grid.Row="2">
-            <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}">
+            <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
+                    Height="20" Width="20">
                 <Image Source="Assets/buttonPlay.png"/>
             </Button>
-            <Button Command="{Binding ClickPause}" CommandParameter="{Binding ElementName=MediaElementPlayer}">
+            <Button Command="{Binding ClickPause}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
+                    Height="20" Width="20">
                 <Image Source="Assets/buttonPause.png"/>
             </Button>
-            <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}">
+            <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
+                    Height="20" Width="20">
                 <Image Source="Assets/buttonPlay.png"/>
             </Button>
         </Menu>
