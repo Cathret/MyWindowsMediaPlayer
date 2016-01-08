@@ -35,9 +35,9 @@
                         Stretch="Uniform" Grid.Row="1"/>
 
         <Menu Grid.Row="2">
-            <Button Command="{Binding ClickPlay}"/>
-            <Button Command="{Binding ClickPause}"/>
-            <Button Command="{Binding ClickStop}"/>
+            <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"/>
+            <Button Command="{Binding ClickPause}" CommandParameter="{Binding ElementName=MediaElementPlayer}"/>
+            <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}"/>
         </Menu>
         
         <StatusBar Grid.Row="3" Background="Black">
