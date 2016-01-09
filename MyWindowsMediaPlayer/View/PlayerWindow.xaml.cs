@@ -22,7 +22,7 @@ namespace MyWindowsMediaPlayer.View
             MediaElementPlayer.Volume = (double)SliderVolume.Value;
         }
 
-        private void ChangedMediaSeek(object sender, RoutedEventArgs e)
+        private void ChangeMediaSeek(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             MediaElementPlayer.Pause();
             MediaElementPlayer.Position = TimeSpan.FromSeconds(SliderSeek.Value);
@@ -36,6 +36,8 @@ namespace MyWindowsMediaPlayer.View
 
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
+#warning "Only if boucle is active, then don't do anything"
+            MediaElementPlayer.Stop();
             MediaElementPlayer.Position = TimeSpan.FromSeconds(0);
         }
     }

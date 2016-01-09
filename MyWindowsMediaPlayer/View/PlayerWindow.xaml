@@ -34,7 +34,8 @@
         <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual" Stretch="Uniform" Grid.Row="1"
                       MediaOpened="MediaOpened" MediaEnded="MediaEnded"/>
 
-        <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center" Margin="10,1,10,1"/>
+        <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center"
+                    ValueChanged="ChangeMediaSeek" Margin="10,1,10,1"/>
         
         <Menu Grid.Row="3">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
