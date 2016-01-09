@@ -22,7 +22,7 @@ namespace MyWindowsMediaPlayer.View
             MediaElementPlayer.Volume = (double)SliderVolume.Value;
         }
 
-        private void ChangeMediaSeek(object sender, System.Windows.Input.ManipulationStartedEventArgs args)
+        private void ChangeMediaSeek(object sender, System.Windows.Input.ManipulationCompletedEventArgs args)
         {
             MediaElementPlayer.Position = TimeSpan.FromSeconds(SliderSeek.Value);
         }
