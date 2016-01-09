@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace MyWindowsMediaPlayer.ViewModel
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
     {
         #region INotifyPropertyChanged
 
@@ -13,6 +13,21 @@ namespace MyWindowsMediaPlayer.ViewModel
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #endregion
+
+        #region IDiposable
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {                
+            }
+        }
         #endregion
     }
 }

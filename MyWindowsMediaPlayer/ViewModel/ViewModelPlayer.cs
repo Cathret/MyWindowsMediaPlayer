@@ -53,5 +53,26 @@ namespace MyWindowsMediaPlayer.ViewModel
 
             OpenBibliotheque = new RelayCommand(PlayerCommands.OpenBiblio_Execute, PlayerCommands.OpenBiblio_CanExecute);
         }
+
+        #region IDisposable
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                OpenFile = null;
+                OpenRecent = null;
+                CreatePlaylist = null;
+                OpenPlaylist = null;
+                AddToPlaylist =null;
+                DeleteFromPlaylist = null;
+                ModifyPlaylist = null;
+                DeletePlaylist = null;
+                ClickPlay = null;
+                ClickPause = null;
+                ClickStop = null;
+                OpenBibliotheque = null; 
+            }
+        }
+        #endregion
     }
 }
