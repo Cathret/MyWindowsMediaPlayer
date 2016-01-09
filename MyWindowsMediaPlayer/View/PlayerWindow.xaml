@@ -35,7 +35,7 @@
                       MediaOpened="MediaOpened" MediaEnded="MediaEnded"/>
 
         <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center"
-                    MouseLeftButtonUp="ChangeMediaSeek"
+                    MouseUp="ChangeMediaSeek"
                     Margin="10,1,10,1" SmallChange="1" LargeChange="5"/>
         
         <Menu Grid.Row="3">

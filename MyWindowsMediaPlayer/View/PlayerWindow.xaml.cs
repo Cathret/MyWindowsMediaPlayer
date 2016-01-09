@@ -29,14 +29,15 @@ namespace MyWindowsMediaPlayer.View
 
         private void MediaOpened(object sender, RoutedEventArgs e)
         {
+            MediaElementPlayer.Volume = (double)SliderVolume.Value;
             SliderSeek.Maximum = MediaElementPlayer.NaturalDuration.TimeSpan.TotalSeconds;
         }
 
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
-#warning "Only if boucle is active, then don't do anything"
             MediaElementPlayer.Stop();
-            MediaElementPlayer.Position = TimeSpan.FromSeconds(0);
+#warning "Only if boucle is active, then don't do anything"
+            MediaElementPlayer.Play();
         }
     }
 }
