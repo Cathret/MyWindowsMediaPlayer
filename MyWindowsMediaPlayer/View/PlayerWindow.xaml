@@ -31,10 +31,10 @@
             <MenuItem Header="_Bibliothèque" Command="{Binding OpenBibliotheque}"/>
         </Menu>
 
-        <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual"
-                        Stretch="Uniform" Grid.Row="1"/>
+        <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual" Stretch="Uniform" Grid.Row="1"
+                      MediaOpened="MediaOpened" MediaEnded="MediaEnded"/>
 
-        <Slider Grid.Row="2" VerticalAlignment="Center" Margin="10,1,10,1"/>
+        <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center" Margin="10,1,10,1"/>
         
         <Menu Grid.Row="3">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
@@ -44,7 +44,8 @@
             <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
                     Height="20" Width="20" Content="{StaticResource StopImage}"/>
             <Slider x:Name="SliderVolume" VerticalAlignment="Center" HorizontalAlignment="Right" Width="90"
-                    ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"/>
+                    ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"
+                    SmallChange="0.01" LargeChange="0.1"/>
         </Menu>
     </Grid>
 </Window>
