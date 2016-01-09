@@ -34,7 +34,7 @@
         <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual"
                         Stretch="Uniform" Grid.Row="1"/>
 
-        <Slider Grid.Row="2" Margin="10,1,10,1"/>
+        <Slider Grid.Row="2" VerticalAlignment="Center" Margin="10,1,10,1"/>
         
         <Menu Grid.Row="3">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
@@ -43,7 +43,8 @@
                     Height="20" Width="20" Content="{StaticResource PauseImage}"/>
             <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
                     Height="20" Width="20" Content="{StaticResource StopImage}"/>
-            <Slider HorizontalAlignment="Right" Width="90"/>
+            <Slider x:Name="SliderVolume" VerticalAlignment="Center" HorizontalAlignment="Right" Width="90"
+                    ValueChanged="{Binding ChangeMediaVolume}" Minimum="0" Maximum="1" Value="0.5"/>
         </Menu>
     </Grid>
 </Window>

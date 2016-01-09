@@ -8,22 +8,14 @@ using System.Windows.Input;
 
 namespace MyWindowsMediaPlayer.Model
 {
-    /// <summary>
-    /// This RelayCommand is taken from MSDN magazine
-    /// http://msdn.microsoft.com/en-us/magazine/dd419663.aspx#id0090030
-    /// </summary>
-
     public class RelayCommand : ICommand
     {
         #region Fields
-
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
-
         #endregion // Fields
 
         #region Constructors
-
         public RelayCommand(Action<object> execute)
             : this(execute, null)
         {

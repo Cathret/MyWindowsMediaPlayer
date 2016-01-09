@@ -15,5 +15,10 @@ namespace MyWindowsMediaPlayer.View
             InitializeComponent();
             this.DataContext = new ViewModelPlayer();
         }
+
+        public void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)
+        {
+            MediaElementPlayer.Volume = (double)SliderVolume.Value;
+        }
     }
 }
