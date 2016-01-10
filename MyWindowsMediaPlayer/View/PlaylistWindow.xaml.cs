@@ -35,5 +35,10 @@ namespace MyWindowsMediaPlayer.View
         {
             this.Close();
         }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ButtonSelect.IsEnabled = true;
+        }
     }
 }
