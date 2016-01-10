@@ -24,7 +24,6 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void OpenFile_Execute(object parameter)
         {
-#warning "More to create"
             MediaElement media = parameter as MediaElement;
             OpenFileDialog dlg = new OpenFileDialog();
 
@@ -55,13 +54,11 @@ namespace MyWindowsMediaPlayer.Model
         #region OpenRecent
         static public bool OpenRecent_CanExecute(object parameter)
         {
-#warning "if it exists recent files"
             return (false);
         }
 
         static public void OpenRecent_Execute(object parameter)
         {
-#warning "Modify himself to add direct link to files"
         }
         #endregion
 
@@ -77,7 +74,6 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void Create_Execute(object parameter)
         {
-            #warning "Comment"
             //var newWin = new NewPlaylistWindow();
             //newWin.Show();
         }
@@ -120,7 +116,7 @@ namespace MyWindowsMediaPlayer.Model
             if (newWin.bHasReturned == true)
             {
                 string path = context._media.Source.ToString();
-                newWin.playlist.AddToPlaylist(path);
+                newWin.playlist.AddToPlaylist(path, false);
             }
         }
         #endregion

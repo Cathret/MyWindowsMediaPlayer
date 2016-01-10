@@ -52,37 +52,39 @@ namespace MyWindowsMediaPlayer.Model
             }
         }
 
-        public void AddToPlaylist(string path)
+        public void AddToPlaylist(string path, bool isReading)
         {
             NumberOfEntries++;
             OneFile newFile = new OneFile(path);
-            string[] lines = File.ReadAllLines(this.Path);
-            int place = 0;
-            foreach (string line in lines)
+            if (!isReading)
             {
-                place++;
-                if (line.Contains("Version"))
-                    break;
-            }
-            if (lines[1].Contains("NumberOfEntries="))
-                lines[1] = "NumberOfEntries=" + NumberOfEntries;
-            using (StreamWriter writer = new StreamWriter(".tempFile"))
-            {
-                int i = 0;
+                string[] lines = File.ReadAllLines(this.Path);
+                int place = 0;
                 foreach (string line in lines)
                 {
-                    i++;
-                    if (place == i)
+                    place++;
+                    if (line.Contains("Version"))
+                        break;
+                }
+                if (lines[1].Contains("NumberOfEntries="))
+                    lines[1] = "NumberOfEntries=" + NumberOfEntries;
+                using (StreamWriter writer = new StreamWriter(".tempFile"))
+                {
+                    int i = 0;
+                    foreach (string line in lines)
                     {
-                        int seconds = -1;
-                        writer.WriteLine("File" + NumberOfEntries + "=" + newFile.Name);
-                        writer.WriteLine("Title" + NumberOfEntries + "=" + newFile.Path);
-                        writer.WriteLine("Length" + NumberOfEntries + "=" + seconds);
+                        i++;
+                        if (place == i)
+                        {
+                            int seconds = -1;
+                            writer.WriteLine("File" + NumberOfEntries + "=" + newFile.Name);
+                            writer.WriteLine("Title" + NumberOfEntries + "=" + newFile.Path);
+                            writer.WriteLine("Length" + NumberOfEntries + "=" + seconds);                    }
                     }
                 }
+                File.Replace(".tempFile", this.Path, this.Path + ".bak");
+                File.Delete(this.Path + ".bak");
             }
-            File.Replace(".tempFile", this.Path, this.Path + ".bak");
-            File.Delete(this.Path + ".bak");
             Files.Add(newFile);
         }
 
@@ -124,7 +126,7 @@ namespace MyWindowsMediaPlayer.Model
                         select lines.Substring(lines.IndexOf('=') + 1);
 
             foreach (var f in files)
-                AddToPlaylist(f);
+                AddToPlaylist(f, true);
 
             string[] fullLines = File.ReadAllLines(Path);
             if (!fullLines[0].Equals("[playlist]"))
