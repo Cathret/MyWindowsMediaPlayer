@@ -69,7 +69,6 @@ namespace MyWindowsMediaPlayer.View
                 {
                     Console.WriteLine(ex.ToString());
                 }
-
             }
             else if (_bIsBoucle)
                 MediaElementPlayer.Play();

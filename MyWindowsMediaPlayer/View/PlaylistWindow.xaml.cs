@@ -35,8 +35,6 @@ namespace MyWindowsMediaPlayer.View
             playerPlaylist = this.ListPlaylist.SelectedValue as Playlist;
             playerMedia.Source = new Uri(playerPlaylist.Files[0].Path);
             playerMedia.Play();
-            playerPlaylist = null;
-            playerMedia = null;
             this.Owner = null;
             this.Close();
         }
