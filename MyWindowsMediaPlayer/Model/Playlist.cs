@@ -81,8 +81,8 @@ namespace MyWindowsMediaPlayer.Model
                     }
                 }
             }
-            File.Replace(".tempFile", path, path + ".bak");
-            File.Delete(path + ".bak");
+            File.Replace(".tempFile", this.Path, this.Path + ".bak");
+            File.Delete(this.Path + ".bak");
             Files.Add(newFile);
         }
 
