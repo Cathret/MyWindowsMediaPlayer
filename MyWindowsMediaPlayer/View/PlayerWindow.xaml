@@ -20,7 +20,7 @@
             </MenuItem>
             <MenuItem Header="_Playlist">
                 <MenuItem Header="_Créer une playlist" Command="{Binding CreatePlaylist}"/>
-                <MenuItem Header="_Ouvrir une playlist" Command="{Binding OpenPlaylist}" CommandParameter="{Binding}"/>
+                <MenuItem Header="_Ouvrir une playlist" Command="{Binding OpenPlaylist}"/>
                 <Separator/>
                 <MenuItem Header="_Ajouter à la playlist.." Command="{Binding AddToPlaylist}"/>
                 <MenuItem Header="_Supprimer de la playlist" Command="{Binding DeleteFromPlaylist}"/>
