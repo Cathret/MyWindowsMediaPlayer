@@ -34,11 +34,14 @@ namespace MyWindowsMediaPlayer.View
         private void MediaOpened(object sender, RoutedEventArgs e)
         {
             MediaElementPlayer.Volume = (double)SliderVolume.Value;
-            SliderSeek.Maximum = MediaElementPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(timer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            if (MediaElementPlayer.NaturalDuration.HasTimeSpan)
+            {
+                SliderSeek.Maximum = MediaElementPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+                dispatcherTimer.Tick += new EventHandler(timer_Tick);
+                dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                dispatcherTimer.Start();
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)

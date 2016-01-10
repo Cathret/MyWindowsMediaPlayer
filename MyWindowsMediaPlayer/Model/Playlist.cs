@@ -75,8 +75,10 @@ namespace MyWindowsMediaPlayer.Model
                     if (place == i)
                     {
                         System.Windows.Controls.MediaElement tmpMedia = new System.Windows.Controls.MediaElement();
-                        tmpMedia.Source = new Uri(newFile.Path);
-                        double seconds = tmpMedia.NaturalDuration.TimeSpan.TotalSeconds;
+                        tmpMedia.Source = new Uri(newFile.Path, UriKind.Relative);
+                        double seconds = -1;
+                        if (tmpMedia.NaturalDuration.HasTimeSpan)
+                            seconds = tmpMedia.NaturalDuration.TimeSpan.TotalSeconds;
                         tmpMedia = null;
                         writer.WriteLine("File" + NumberOfEntries + "=" + newFile.Name);
                         writer.WriteLine("Title" + NumberOfEntries + "=" + newFile.Path);
