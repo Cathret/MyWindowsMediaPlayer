@@ -21,7 +21,7 @@ namespace MyWindowsMediaPlayer.View
         public PlaylistWindow()
         {
             InitializeComponent();
-            this.DataContext = new ViewModelPlaylist();
+            this.DataContext = new ViewModelPlaylist(ListPlaylist);
         }
 
         private void SelectPlaylist(object sender, RoutedEventArgs e)

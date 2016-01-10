@@ -3,27 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using MyWindowsMediaPlayer.View;
 using MyWindowsMediaPlayer.Model;
-using System.Windows;
+using System.IO;
 
 namespace MyWindowsMediaPlayer.ViewModel
 {
-    public enum e_PlaylistMessage
-    {
-        OPEN    = 1,
-        ADD_TO  = 2,
-        MODIFY  = 4,
-        DELETE  = 8
-    }
-
     public class ViewModelPlaylist : ViewModelBase
     {
+        static public string PathPlaylist = ".\\playlists\\";
         public  Playlist    playlist { get; set; }
 
-        public  ViewModelPlaylist()
+        private void fillList(ListBox listPlaylist)
         {
-            
+            if (!Directory.Exists(PathPlaylist))
+                Directory.CreateDirectory(PathPlaylist);
+            try
+            {
+                string[] listFiles = Directory.GetFiles(PathPlaylist, "*.pls");
+                foreach (string fileName in listFiles)
+                {
+                    Playlist onePlaylist = new Playlist(fileName);
+                    try
+                    {
+                        onePlaylist.ParsePlaylist();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                    listPlaylist.Items.Add(onePlaylist);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());   
+            }
+        }
+
+        public  ViewModelPlaylist(ListBox listPlaylist)
+        {
+            fillList(listPlaylist);
         }
 
         #region IDisposable
