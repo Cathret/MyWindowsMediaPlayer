@@ -122,14 +122,22 @@ namespace MyWindowsMediaPlayer.Model
         #region DeleteFromPlaylist
         static public bool DeleteFrom_CanExecute(object parameter)
         {
-#warning "Si en train de lire filchier d'une playlist"
-            if (parameter == null) return false;
-            return (bool)parameter;
+            ViewModelPlayer context = parameter as ViewModelPlayer;
+            if (context._playlist != null)
+                return (true);
+            return (false);
         }
 
         static public void DeleteFrom_Execute(object parameter)
         {
-#warning "Supprimer actuel si actuel"
+            ViewModelPlayer context = parameter as ViewModelPlayer;
+            var msgBoxRslt = MessageBox.Show("Etes vous sûr de vouloir supprimer cette musique de la playlist ?",
+                                         "Attention !", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (msgBoxRslt == MessageBoxResult.Yes)
+            {
+                string path = context._media.Source.ToString();
+                context._playlist.RemoveFromPlaylist(path);
+            }
         }
         #endregion
 
@@ -141,11 +149,13 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void Modify_Execute(object parameter)
         {
-#warning "Doit retourner la valeur de ce qu'on est cense modifier"
-            //var newWin = new PlaylistWindow();
-            //newWin.Show();
+            var newWin = new PlaylistWindow();
+            newWin.ShowDialog();
+            if (newWin.bHasReturned == true)
+            {
+#warning Doit ouvrir la fenetre "modifierPlaylist"
+            }
         }
-
         #endregion
 
         #region DeletePlaylist
@@ -156,7 +166,6 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void Delete_Execute(object parameter)
         {
-            ViewModelPlayer context = parameter as ViewModelPlayer;
             var newWin = new PlaylistWindow();
             newWin.ShowDialog();
             if (newWin.bHasReturned == true)

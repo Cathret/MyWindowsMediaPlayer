@@ -62,8 +62,30 @@ namespace MyWindowsMediaPlayer.Model
         {
             if (NumberOfEntries <= 0 || !Files.Exists(x => x.Path.Equals(path)))
                 return (false);
-            Files.Remove(Files.Find(x => x.Path.Equals(path)));
             NumberOfEntries--;
+            string[] lines = File.ReadAllLines(this.Path);
+            int place = 0;
+            foreach (string line in lines)
+            {
+                place++;
+                if (line.Contains(path))
+                    break;
+            }
+            if (lines[1].Contains("NumberOfEntries="))
+                lines[1] = "NumberOfEntries=" + NumberOfEntries;
+            using (StreamWriter writer = new StreamWriter(".tempFile"))
+            {
+                int i = 0;
+                foreach (string line in lines)
+                {
+                    i++;
+                    if (place < i || place > i + 3)
+                        writer.WriteLine(line);
+                }
+            }
+            File.Replace(".tempFile", path, path + ".bak");
+            File.Delete(path + ".bak");
+            Files.Remove(Files.Find(x => x.Path.Equals(path)));
             return (true);
         }
 
