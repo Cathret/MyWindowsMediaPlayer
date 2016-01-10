@@ -22,8 +22,8 @@
                 <MenuItem Header="_Créer une playlist" Command="{Binding CreatePlaylist}"/>
                 <MenuItem Header="_Ouvrir une playlist" Command="{Binding OpenPlaylist}" CommandParameter="{Binding}"/>
                 <Separator/>
-                <MenuItem Header="_Ajouter à la playlist.." Command="{Binding AddToPlaylist}"/>
-                <MenuItem Header="_Supprimer de la playlist" Command="{Binding DeleteFromPlaylist}"/>
+                <MenuItem Header="_Ajouter à la playlist.." Command="{Binding AddToPlaylist}" CommandParameter="{Binding}"/>
+                <MenuItem Header="_Supprimer de la playlist" Command="{Binding DeleteFromPlaylist}" CommandParameter="{Binding}"/>
                 <Separator/>
                 <MenuItem Header="_Modifier la playlist.." Command="{Binding ModifyPlaylist}"/>
                 <MenuItem Header="_Supprimer la playlist.." Command="{Binding DeletePlaylist}"/>
