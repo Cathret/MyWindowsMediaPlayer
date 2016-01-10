@@ -12,8 +12,8 @@ namespace MyWindowsMediaPlayer.View
     
     public partial class PlayerWindow : Window
     {
-        bool _bIsBoucle = false;
-        Playlist _playlist = null;
+        public bool _bIsBoucle = false;
+        public Playlist _playlist = null;
 
         public  PlayerWindow()
         {
