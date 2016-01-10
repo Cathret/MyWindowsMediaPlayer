@@ -18,16 +18,19 @@ namespace MyWindowsMediaPlayer.View
 {
     public partial class PlaylistWindow : Window
     {
-        public PlaylistWindow()
+        Playlist playerPlaylist = null;
+
+        public PlaylistWindow(Playlist playlist)
         {
             InitializeComponent();
+            playerPlaylist = playlist;
             this.DataContext = new ViewModelPlaylist(ListPlaylist);
         }
 
         private void SelectPlaylist(object sender, RoutedEventArgs e)
         {
             ViewModelPlaylist context = this.DataContext as ViewModelPlaylist;
-            context.playlist = this.ListPlaylist.SelectedValue as Playlist;
+            playerPlaylist = this.ListPlaylist.SelectedValue as Playlist;
             this.Close();
         }
 
