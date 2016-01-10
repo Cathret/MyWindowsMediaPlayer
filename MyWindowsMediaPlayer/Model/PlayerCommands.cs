@@ -38,7 +38,14 @@ namespace MyWindowsMediaPlayer.Model
             {
                 // Open document
                 string  fileName = dlg.FileName;
-                media.Source = new Uri(fileName, UriKind.Relative);
+                try
+                {
+                    media.Source = new Uri(fileName, UriKind.Relative);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
                 media.Play();
             }
         }
@@ -85,7 +92,7 @@ namespace MyWindowsMediaPlayer.Model
         {
 #warning "Doit retourner la valeur de ce qu'on est cense ouvrir"
             Playlist    playlist = parameter as Playlist;
-            var newWin = new PlaylistWindow(e_PlaylistMessage.OPEN);
+            var newWin = new PlaylistWindow();
             newWin.Show();
             ViewModelPlaylist context = newWin.DataContext as ViewModelPlaylist;
             playlist = context.playlist;

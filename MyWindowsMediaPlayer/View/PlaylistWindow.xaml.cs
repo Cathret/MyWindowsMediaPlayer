@@ -12,15 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MyWindowsMediaPlayer.ViewModel;
+using MyWindowsMediaPlayer.Model;
 
 namespace MyWindowsMediaPlayer.View
 {
     public partial class PlaylistWindow : Window
     {
-        public PlaylistWindow(e_PlaylistMessage whatToDo)
+        public PlaylistWindow()
         {
             InitializeComponent();
-            this.DataContext = new ViewModelPlaylist(whatToDo);
+            this.DataContext = new ViewModelPlaylist();
+        }
+
+        private void SelectPlaylist(object sender, RoutedEventArgs e)
+        {
+            ViewModelPlaylist context = this.DataContext as ViewModelPlaylist;
+            context.playlist = this.ListPlaylist.SelectedValue as Playlist;
+            this.Close();
+        }
+
+        private void ButtonCancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

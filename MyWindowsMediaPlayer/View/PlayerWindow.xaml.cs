@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Microsoft.Win32;
+using MyWindowsMediaPlayer.Model;
 using MyWindowsMediaPlayer.ViewModel;
 
 namespace MyWindowsMediaPlayer.View
@@ -11,6 +12,9 @@ namespace MyWindowsMediaPlayer.View
     
     public partial class PlayerWindow : Window
     {
+        bool _bIsBoucle = false;
+        Playlist _playlist = null;
+
         public  PlayerWindow()
         {
             InitializeComponent();
@@ -46,7 +50,30 @@ namespace MyWindowsMediaPlayer.View
         {
             MediaElementPlayer.Stop();
 #warning "If boucle is active, play | if playlist, load next file"
-            MediaElementPlayer.Play();
+            if (_playlist != null)
+            {
+                int index = _playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                try
+                {
+                    if (_playlist.Files.Count > index + 1)
+                    {
+                        MediaElementPlayer.Source = new Uri(_playlist.Files[index].Path);
+                        MediaElementPlayer.Play();
+                    }
+                    else if (_bIsBoucle)
+                    {
+                        MediaElementPlayer.Source = new Uri(_playlist.Files[0].Path);
+                        MediaElementPlayer.Play();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+            }
+            else if (_bIsBoucle)
+                MediaElementPlayer.Play();
         }
     }
 }

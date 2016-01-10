@@ -19,9 +19,9 @@ namespace MyWindowsMediaPlayer.ViewModel
 
     public class ViewModelPlaylist : ViewModelBase
     {
-        public  Playlist    playlist { get; private set; }
+        public  Playlist    playlist { get; set; }
 
-        public  ViewModelPlaylist(e_PlaylistMessage whatToDo)
+        public  ViewModelPlaylist()
         {
             
         }
