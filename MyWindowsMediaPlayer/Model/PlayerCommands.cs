@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
+using MyWindowsMediaPlayer.View;
 using MyWindowsMediaPlayer.ViewModel;
 
 namespace MyWindowsMediaPlayer.Model
@@ -83,8 +84,11 @@ namespace MyWindowsMediaPlayer.Model
         static public void Open_Execute(object parameter)
         {
 #warning "Doit retourner la valeur de ce qu'on est cense ouvrir"
-            //var newWin = new PlaylistWindow();
-            //newWin.Show();
+            Playlist    playlist = parameter as Playlist;
+            var newWin = new PlaylistWindow(e_PlaylistMessage.OPEN);
+            newWin.Show();
+            ViewModelPlaylist context = newWin.DataContext as ViewModelPlaylist;
+            playlist = context.playlist;
         }
         #endregion
 

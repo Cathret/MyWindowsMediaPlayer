@@ -3,6 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Playlists" Height="320" Width="640">
     <Grid>
-        <ListBox x:Name="ListPlaylist" Margin="10"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <ListBox x:Name="ListPlaylist" Margin="10" Grid.RowSpan="1"/>
+        <Button/>
     </Grid>
 </Window>

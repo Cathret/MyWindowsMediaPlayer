@@ -31,6 +31,15 @@ namespace MyWindowsMediaPlayer.View
         {
             MediaElementPlayer.Volume = (double)SliderVolume.Value;
             SliderSeek.Maximum = MediaElementPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(timer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            SliderSeek.Value = MediaElementPlayer.Position.TotalSeconds;
         }
 
         private void MediaEnded(object sender, RoutedEventArgs e)
