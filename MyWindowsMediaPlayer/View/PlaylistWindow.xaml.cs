@@ -18,29 +18,26 @@ namespace MyWindowsMediaPlayer.View
 {
     public partial class PlaylistWindow : Window
     {
-        Playlist playerPlaylist = null;
-        MediaElement playerMedia = null;
+        public Playlist playlist { get; private set; }
+        public Nullable<bool> bHasReturned = null;
 
-        public PlaylistWindow(ref Playlist playlist, ref MediaElement media)
+        public PlaylistWindow()
         {
             InitializeComponent();
-            playerPlaylist = playlist;
-            playerMedia = media;
             this.DataContext = new ViewModelPlaylist(ListPlaylist);
         }
 
         private void SelectPlaylist(object sender, RoutedEventArgs e)
         {
             ViewModelPlaylist context = this.DataContext as ViewModelPlaylist;
-            playerPlaylist = this.ListPlaylist.SelectedValue as Playlist;
-            playerMedia.Source = new Uri(playerPlaylist.Files[0].Path);
-            playerMedia.Play();
-            this.Owner = null;
+            playlist = this.ListPlaylist.SelectedValue as Playlist;
+            bHasReturned = true;
             this.Close();
         }
 
         private void ButtonCancel(object sender, RoutedEventArgs e)
         {
+            bHasReturned = false;
             this.Close();
         }
 

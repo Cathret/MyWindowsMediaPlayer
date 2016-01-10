@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -90,10 +91,15 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void Open_Execute(object parameter)
         {
-#warning "Doit retourner la valeur de ce qu'on est cense ouvrir"
             ViewModelPlayer    context = parameter as ViewModelPlayer;
-            var newWin = new PlaylistWindow(ref context._playlist, ref context._media);
-            newWin.Show();
+            var newWin = new PlaylistWindow();
+            newWin.ShowDialog();
+            if (newWin.bHasReturned == true)
+            {
+                context._playlist = newWin.playlist;
+                context._media.Source = new Uri(context._playlist.Files[0].Path);
+                context._media.Play();
+            }
         }
         #endregion
 
@@ -150,9 +156,11 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void Delete_Execute(object parameter)
         {
-#warning "Doit retourner la valeur de ce qu'on est cense supprimer"
-            //var newWin = new PlaylistWindow();
-            //newWin.Show();
+            ViewModelPlayer context = parameter as ViewModelPlayer;
+            var newWin = new PlaylistWindow();
+            newWin.ShowDialog();
+            if (newWin.bHasReturned == true)
+                File.Delete(newWin.playlist.Path);
         }
         #endregion
 
