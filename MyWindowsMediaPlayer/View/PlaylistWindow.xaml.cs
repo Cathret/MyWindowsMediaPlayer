@@ -11,17 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MyWindowsMediaPlayer.ViewModel;
 
 namespace MyWindowsMediaPlayer.View
 {
-    /// <summary>
-    /// Interaction logic for PlaylistWindow.xaml
-    /// </summary>
     public partial class PlaylistWindow : Window
     {
-        public PlaylistWindow()
+        public PlaylistWindow(e_PlaylistMessage whatToDo)
         {
             InitializeComponent();
+            this.DataContext = new ViewModelPlaylist(whatToDo);
         }
     }
 }

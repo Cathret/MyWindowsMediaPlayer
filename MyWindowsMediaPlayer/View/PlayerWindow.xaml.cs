@@ -36,7 +36,7 @@ namespace MyWindowsMediaPlayer.View
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
             MediaElementPlayer.Stop();
-#warning "Only if boucle is active, then don't do anything"
+#warning "If boucle is active, play | if playlist, load next file"
             MediaElementPlayer.Play();
         }
     }

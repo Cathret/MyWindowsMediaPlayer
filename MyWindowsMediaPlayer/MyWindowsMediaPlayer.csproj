@@ -66,8 +66,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\PlayerCommands.cs" />
+    <Compile Include="Model\Playlist.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelPlaylist.cs" />
     <Compile Include="ViewModel\ViewModelPlayer.cs" />
     <Compile Include="View\PlaylistWindow.xaml.cs">
       <DependentUpon>PlaylistWindow.xaml</DependentUpon>
