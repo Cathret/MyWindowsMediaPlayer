@@ -18,7 +18,7 @@ namespace MyWindowsMediaPlayer.View
         public  PlayerWindow()
         {
             InitializeComponent();
-            this.DataContext = new ViewModelPlayer();
+            this.DataContext = new ViewModelPlayer(_playlist, MediaElementPlayer);
         }
 
         private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)

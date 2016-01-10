@@ -91,8 +91,8 @@ namespace MyWindowsMediaPlayer.Model
         static public void Open_Execute(object parameter)
         {
 #warning "Doit retourner la valeur de ce qu'on est cense ouvrir"
-            Playlist    playlist = parameter as Playlist;
-            var newWin = new PlaylistWindow(playlist);
+            ViewModelPlayer    context = parameter as ViewModelPlayer;
+            var newWin = new PlaylistWindow(context._playlist, context._media);
             newWin.Show();
         }
         #endregion

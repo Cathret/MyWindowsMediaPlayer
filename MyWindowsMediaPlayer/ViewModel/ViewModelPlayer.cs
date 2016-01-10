@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyWindowsMediaPlayer.View;
 using MyWindowsMediaPlayer.Model;
+using System.Windows.Controls;
 
 namespace MyWindowsMediaPlayer.ViewModel
 {
@@ -35,7 +36,12 @@ namespace MyWindowsMediaPlayer.ViewModel
         public RelayCommand OpenBibliotheque { get; set; }
         #endregion
 
-        public ViewModelPlayer()
+        #region Fields
+        public Playlist _playlist = null;
+        public MediaElement _media = null;
+        #endregion
+
+        public ViewModelPlayer(Playlist playlist, MediaElement media)
         {
             OpenFile = new RelayCommand(PlayerCommands.OpenFile_Execute, PlayerCommands.OpenFile_CanExecute);
             OpenRecent = new RelayCommand(PlayerCommands.OpenRecent_Execute, PlayerCommands.OpenRecent_CanExecute);
@@ -52,6 +58,9 @@ namespace MyWindowsMediaPlayer.ViewModel
             ClickStop = new RelayCommand(PlayerCommands.Stop_Execute, PlayerCommands.Stop_CanExecute);
 
             OpenBibliotheque = new RelayCommand(PlayerCommands.OpenBiblio_Execute, PlayerCommands.OpenBiblio_CanExecute);
+
+            _playlist = playlist;
+            _media = media;
         }
 
         #region IDisposable
