@@ -25,16 +25,16 @@ namespace MyWindowsMediaPlayer.ViewModel
                 string[] listFiles = Directory.GetFiles(PathPlaylist, "*.pls");
                 foreach (string fileName in listFiles)
                 {
-                    Playlist onePlaylist = new Playlist(fileName);
                     try
                     {
+                        Playlist onePlaylist = new Playlist(fileName);
                         onePlaylist.ParsePlaylist();
+                        listPlaylist.Items.Add(onePlaylist);
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.ToString());
                     }
-                    listPlaylist.Items.Add(onePlaylist);
                 }
             }
             catch (Exception ex)

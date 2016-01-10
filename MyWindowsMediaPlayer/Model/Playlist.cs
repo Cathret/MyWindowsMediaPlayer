@@ -11,8 +11,8 @@ namespace MyWindowsMediaPlayer.Model
     public class OneFile
     {
         #region Fields
-        public string Name { get; private set; }
         public string Path { get; private set; }
+        public string Name { get; private set; }
         #endregion // Fields
 
         private string getNameFromPath(string path)
@@ -44,6 +44,7 @@ namespace MyWindowsMediaPlayer.Model
                 Path = path;
                 Name = path.Substring(0, path.IndexOf(".pls")).Split('\\').Last();
                 NumberOfEntries = 0;
+                Files = new List<OneFile>();
             }
             catch (Exception ex)
             {
@@ -69,8 +70,8 @@ namespace MyWindowsMediaPlayer.Model
         public void ParsePlaylist()
         {
             var files = from lines in File.ReadLines(Path)
-                        where lines.Contains("File*=")
-                        select lines.Substring(lines.IndexOf('='));
+                        where lines.StartsWith("File")
+                        select lines.Substring(lines.IndexOf('=') + 1);
 
             foreach (var f in files)
                 AddToPlaylist(f);
