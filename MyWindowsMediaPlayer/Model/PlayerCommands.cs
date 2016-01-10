@@ -106,16 +106,22 @@ namespace MyWindowsMediaPlayer.Model
         #region AddToPlaylist
         static public bool Add_CanExecute(object parameter)
         {
-#warning "Si on est actuellement en train de lire quelque chose"
-            if (parameter == null) return false;
-            return (bool)parameter;
+            ViewModelPlayer context = parameter as ViewModelPlayer;
+            if (context._media.Source != null)
+                return (true);
+            return (false);
         }
 
         static public void Add_Execute(object parameter)
         {
-#warning "Doit retourner la valeur de ce qu'on est cense utiliser pour l'ajout"
-            //var newWin = new PlaylistWindow();
-            //newWin.Show();
+            ViewModelPlayer context = parameter as ViewModelPlayer;
+            var newWin = new PlaylistWindow();
+            newWin.ShowDialog();
+            if (newWin.bHasReturned == true)
+            {
+                string path = context._media.Source.ToString();
+                newWin.playlist.AddToPlaylist(path);
+            }
         }
         #endregion
 

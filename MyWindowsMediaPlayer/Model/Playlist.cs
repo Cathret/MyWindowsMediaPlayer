@@ -54,8 +54,38 @@ namespace MyWindowsMediaPlayer.Model
 
         public void AddToPlaylist(string path)
         {
-            Files.Add(new OneFile(path));
             NumberOfEntries++;
+            OneFile newFile = new OneFile(path);
+            string[] lines = File.ReadAllLines(this.Path);
+            int place = 0;
+            foreach (string line in lines)
+            {
+                place++;
+                if (line.Contains("Version"))
+                    break;
+            }
+            if (lines[1].Contains("NumberOfEntries="))
+                lines[1] = "NumberOfEntries=" + NumberOfEntries;
+            using (StreamWriter writer = new StreamWriter(".tempFile"))
+            {
+                int i = 0;
+                foreach (string line in lines)
+                {
+                    i++;
+                    if (place == i)
+                    {
+                        System.Windows.Controls.MediaElement tmpMedia = new System.Windows.Controls.MediaElement();
+                        tmpMedia.Source = new Uri(newFile.Path);
+                        double seconds = tmpMedia.NaturalDuration.TimeSpan.TotalSeconds;
+                        writer.WriteLine("File" + NumberOfEntries + "=" + newFile.Name);
+                        writer.WriteLine("Title" + NumberOfEntries + "=" + newFile.Path);
+                        writer.WriteLine("Length" + NumberOfEntries + "=" + seconds);
+                    }
+                }
+            }
+            File.Replace(".tempFile", path, path + ".bak");
+            File.Delete(path + ".bak");
+            Files.Add(newFile);
         }
 
         public bool RemoveFromPlaylist(string path)
@@ -100,11 +130,11 @@ namespace MyWindowsMediaPlayer.Model
 
             string[] fullLines = File.ReadAllLines(Path);
             if (!fullLines[0].Equals("[playlist]"))
-                throw new Exception("Not a playlist file");
+                throw new Exception("Not a playlist file (doesn't have [playlist])");
             if (!fullLines[1].Contains("NumberOfEntries="))
-                throw new Exception("Not a playlist file");
+                throw new Exception("Not a playlist file (dosen't have NumberOfEntries)");
             if (!(NumberOfEntries == Int32.Parse(fullLines[1].Substring(16))))
-                throw new Exception("Bad playlist format");
+                throw new Exception("Bad playlist format (bad NumberOfEntries)");
         }
 
         public virtual string ToString()
