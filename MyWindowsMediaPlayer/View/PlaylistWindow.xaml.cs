@@ -21,7 +21,7 @@ namespace MyWindowsMediaPlayer.View
         Playlist playerPlaylist = null;
         MediaElement playerMedia = null;
 
-        public PlaylistWindow(Playlist playlist, MediaElement media)
+        public PlaylistWindow(ref Playlist playlist, ref MediaElement media)
         {
             InitializeComponent();
             playerPlaylist = playlist;

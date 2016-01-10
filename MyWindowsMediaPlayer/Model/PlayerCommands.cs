@@ -92,7 +92,7 @@ namespace MyWindowsMediaPlayer.Model
         {
 #warning "Doit retourner la valeur de ce qu'on est cense ouvrir"
             ViewModelPlayer    context = parameter as ViewModelPlayer;
-            var newWin = new PlaylistWindow(context._playlist, context._media);
+            var newWin = new PlaylistWindow(ref context._playlist, ref context._media);
             newWin.Show();
         }
         #endregion
