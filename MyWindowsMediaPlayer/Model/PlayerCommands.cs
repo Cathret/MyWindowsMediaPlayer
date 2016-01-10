@@ -107,7 +107,7 @@ namespace MyWindowsMediaPlayer.Model
         static public bool Add_CanExecute(object parameter)
         {
             ViewModelPlayer context = parameter as ViewModelPlayer;
-            if (context._media.Source != null)
+            if (context != null && context._media != null && context._media.Source != null)
                 return (true);
             return (false);
         }
