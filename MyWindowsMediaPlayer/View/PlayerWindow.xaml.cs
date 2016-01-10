@@ -49,7 +49,6 @@ namespace MyWindowsMediaPlayer.View
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
             MediaElementPlayer.Stop();
-#warning "If boucle is active, play | if playlist, load next file"
             if (_playlist != null)
             {
                 int index = _playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
@@ -57,7 +56,7 @@ namespace MyWindowsMediaPlayer.View
                 {
                     if (_playlist.Files.Count > index + 1)
                     {
-                        MediaElementPlayer.Source = new Uri(_playlist.Files[index].Path);
+                        MediaElementPlayer.Source = new Uri(_playlist.Files[index + 1].Path);
                         MediaElementPlayer.Play();
                     }
                     else if (_bIsBoucle)
