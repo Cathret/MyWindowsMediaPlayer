@@ -36,7 +36,7 @@
 
         <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center"
                     PreviewMouseLeftButtonUp="ChangeMediaSeek"
-                    Margin="10,1,10,1" SmallChange="1" LargeChange="5"/>
+                    Margin="10,1,10,1" SmallChange="1" LargeChange="5" Foreground="BlueViolet"/>
         
         <Menu Grid.Row="3">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
@@ -48,6 +48,7 @@
             <Slider x:Name="SliderVolume" VerticalAlignment="Center" HorizontalAlignment="Right" Width="90"
                     ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"
                     SmallChange="0.01" LargeChange="0.1"/>
+            <TextBlock x:Name="CurrentFile" TextWrapping="Wrap" Text="En attente de fichier"/>
         </Menu>
     </Grid>
 </Window>

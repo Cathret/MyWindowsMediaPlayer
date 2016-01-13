@@ -42,6 +42,7 @@ namespace MyWindowsMediaPlayer.View
                 dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
                 dispatcherTimer.Start();
             }
+            CurrentFile.Text = MediaElementPlayer.Source.OriginalString;
         }
 
         private void timer_Tick(object sender, EventArgs e)
