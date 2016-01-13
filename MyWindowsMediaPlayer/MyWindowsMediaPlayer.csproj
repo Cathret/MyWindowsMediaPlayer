@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\NewPlaylistWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PlaylistWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -71,6 +75,9 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelPlaylist.cs" />
     <Compile Include="ViewModel\ViewModelPlayer.cs" />
+    <Compile Include="View\NewPlaylistWindow.xaml.cs">
+      <DependentUpon>NewPlaylistWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PlaylistWindow.xaml.cs">
       <DependentUpon>PlaylistWindow.xaml</DependentUpon>
     </Compile>
