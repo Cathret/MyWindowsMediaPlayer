@@ -10,7 +10,7 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
 
-        <Menu>
+        <Menu Background="#FFA3A3A3">
             <MenuItem Header="_Fichier">
                 <MenuItem Header="_Ouvrir fichier.." Command="{Binding OpenFile}"
                           CommandParameter="{Binding ElementName=MediaElementPlayer}"/>
@@ -32,14 +32,14 @@
         </Menu>
 
         <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual" Stretch="Uniform" Grid.Row="1"
-                      MediaOpened="MediaOpened" MediaEnded="MediaEnded"/>
+                      MediaOpened="MediaOpened" MediaEnded="MediaEnded" />
 
         <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center"
                     PreviewMouseLeftButtonUp="ChangeMediaSeek"
-                    Margin="10,5.2,9.6,2.6" SmallChange="1" LargeChange="5" Background="#FFB4AFAF" BorderBrush="#FF777373" Foreground="#FFC892F1" />
+                    Margin="0,10.2,-0.4,22.4" SmallChange="1" LargeChange="5" Background="#FFB4AFAF" BorderBrush="#FF777373" Foreground="#FFC892F1" Grid.RowSpan="2" />
 
 
-        <Menu Grid.Row="3">
+        <Menu Grid.Row="3" Background="#FFB3AFAF">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
                     Height="20" Width="20" Content="{StaticResource PlayImage}"/>
             <Button Command="{Binding ClickPause}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
@@ -48,7 +48,7 @@
                     Height="20" Width="20" Content="{StaticResource StopImage}"/>
             <Slider x:Name="SliderVolume" VerticalAlignment="Center" HorizontalAlignment="Right" Width="90"
                     ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"
-                    SmallChange="0.01" LargeChange="0.1"/>
+                    SmallChange="0.01" LargeChange="0.1" Background="#FFB6B6B6" Height="18"/>
             <TextBlock x:Name="CurrentFile" TextWrapping="Wrap" Text="En attente de fichier"/>
         </Menu>
     </Grid>
