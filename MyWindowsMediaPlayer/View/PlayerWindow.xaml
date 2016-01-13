@@ -36,8 +36,9 @@
 
         <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center"
                     PreviewMouseLeftButtonUp="ChangeMediaSeek"
-                    Margin="10,1,10,1" SmallChange="1" LargeChange="5" Foreground="BlueViolet"/>
-        
+                    Margin="10,5.2,9.6,2.6" SmallChange="1" LargeChange="5" Background="#FFB4AFAF" BorderBrush="#FF777373" Foreground="#FFC892F1" />
+
+
         <Menu Grid.Row="3">
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
                     Height="20" Width="20" Content="{StaticResource PlayImage}"/>
