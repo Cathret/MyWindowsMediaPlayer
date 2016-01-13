@@ -74,8 +74,8 @@ namespace MyWindowsMediaPlayer.Model
 
         static public void Create_Execute(object parameter)
         {
-            //var newWin = new NewPlaylistWindow();
-            //newWin.Show();
+            var newWin = new NewPlaylistWindow();
+            newWin.ShowDialog();
         }
         #endregion
 
