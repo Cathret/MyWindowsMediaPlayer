@@ -10,15 +10,15 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
 
-        <Menu Background="#FFA3A3A3">
-            <MenuItem Header="_Fichier">
+        <Menu Background="#FFE7E7E7">
+            <MenuItem Header="_Fichier" Background="#FFEBEBEB">
                 <MenuItem Header="_Ouvrir fichier.." Command="{Binding OpenFile}"
                           CommandParameter="{Binding ElementName=MediaElementPlayer}"/>
                 <MenuItem Header="Ouvrir fichier _récent.." Command="{Binding OpenRecent}">
                     <MenuItem Header="_FILE" Command="ApplicationCommands.Open"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Playlist">
+            <MenuItem Header="_Playlist" Background="#FFE7E7E7">
                 <MenuItem Header="_Créer une playlist" Command="{Binding CreatePlaylist}"/>
                 <MenuItem Header="_Ouvrir une playlist" Command="{Binding OpenPlaylist}" CommandParameter="{Binding}"/>
                 <Separator/>
@@ -28,7 +28,7 @@
                 <MenuItem Header="_Modifier la playlist.." Command="{Binding ModifyPlaylist}"/>
                 <MenuItem Header="_Supprimer la playlist.." Command="{Binding DeletePlaylist}"/>
             </MenuItem>
-            <MenuItem Header="_Bibliothèque" Command="{Binding OpenBibliotheque}"/>
+            <MenuItem Header="_Bibliothèque" Command="{Binding OpenBibliotheque}" Background="#FFE2E2E2"/>
         </Menu>
 
         <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual" Stretch="Uniform" Grid.Row="1"
@@ -36,7 +36,14 @@
 
         <Slider x:Name="SliderSeek" Grid.Row="2" VerticalAlignment="Center"
                     PreviewMouseLeftButtonUp="ChangeMediaSeek"
-                    Margin="0,10.2,-0.4,22.4" SmallChange="1" LargeChange="5" Background="#FFB4AFAF" BorderBrush="#FF777373" Foreground="#FFC892F1" Grid.RowSpan="2" />
+                    Margin="0,10.2,-0.4,22.4" SmallChange="1" LargeChange="5" BorderBrush="#FF777373" Foreground="#FFC892F1" Grid.RowSpan="2" >
+            <Slider.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFB9B9B9" Offset="1"/>
+                </RadialGradientBrush>
+            </Slider.Background>
+        </Slider>
 
 
         <Menu Grid.Row="3" Background="#FFB3AFAF">
