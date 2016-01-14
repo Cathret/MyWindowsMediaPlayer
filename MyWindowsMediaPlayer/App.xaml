@@ -6,5 +6,7 @@
         <Image x:Key="PlayImage" Source="Assets/buttonPlay.png"/>
         <Image x:Key="PauseImage" Source="Assets/buttonPause.png"/>
         <Image x:Key="StopImage" Source="Assets/buttonStop.png"/>
+        <Image x:Key="NextImage" Source="Assets/buttonNext.png"/>
+        <Image x:Key="PrevImage" Source="Assets/buttonPrev.png"/>
     </Application.Resources>
 </Application>

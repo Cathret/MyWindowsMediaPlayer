@@ -40,15 +40,17 @@
 
 
         <Menu Grid.Row="3" Background="#FFB3AFAF">
+            <Button Height="20" Width="20" Content="{StaticResource PrevImage}" RenderTransformOrigin="0.48,0.56"/>
             <Button Command="{Binding ClickPlay}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
-                    Height="20" Width="20" Content="{StaticResource PlayImage}"/>
+        		Height="20" Width="20" Content="{StaticResource PlayImage}"/>
             <Button Command="{Binding ClickPause}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
-                    Height="20" Width="20" Content="{StaticResource PauseImage}"/>
+        		Height="20" Width="20" Content="{StaticResource PauseImage}"/>
             <Button Command="{Binding ClickStop}" CommandParameter="{Binding ElementName=MediaElementPlayer}"
-                    Height="20" Width="20" Content="{StaticResource StopImage}"/>
+        		Height="20" Width="20" Content="{StaticResource StopImage}"/>
+            <Button Height="20" Width="20" Content="{StaticResource NextImage}"/>
             <Slider x:Name="SliderVolume" VerticalAlignment="Center" HorizontalAlignment="Right" Width="90"
-                    ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"
-                    SmallChange="0.01" LargeChange="0.1" Background="#FFB6B6B6" Height="18"/>
+        		ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5"
+        		SmallChange="0.01" LargeChange="0.1" Background="#FFB6B6B6" Height="18"/>
             <TextBlock x:Name="CurrentFile" TextWrapping="Wrap" Text="En attente de fichier"/>
         </Menu>
     </Grid>
