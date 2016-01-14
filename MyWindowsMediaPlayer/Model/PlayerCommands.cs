@@ -93,7 +93,8 @@ namespace MyWindowsMediaPlayer.Model
             if (newWin.bHasReturned == true)
             {
                 context._playlist = newWin.playlist;
-                context._media.Source = new Uri(context._playlist.Files[0].Path);
+                if (context._playlist.Empty() == false)
+                    context._media.Source = new Uri(context._playlist.Files[0].Path);
                 context._media.Play();
             }
         }

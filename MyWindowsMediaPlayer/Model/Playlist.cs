@@ -31,6 +31,7 @@ namespace MyWindowsMediaPlayer.Model
     public class Playlist
     {
         #region Fields
+        static public readonly string PathPlaylist = ".\\playlists\\";
         public string Name { get; private set; }
         public string Path { get; private set; }
         public int NumberOfEntries { get; private set; }
@@ -50,6 +51,31 @@ namespace MyWindowsMediaPlayer.Model
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+        public bool CreatePlaylistFile()
+        {
+            if (!Directory.Exists(PathPlaylist))
+                Directory.CreateDirectory(PathPlaylist);
+            else if (File.Exists(this.Path))
+                return (false);
+            try
+            {
+                File.Create(this.Path).Close();
+
+                using (StreamWriter writer = new StreamWriter(this.Path))
+                {
+                    writer.WriteLine("[playlist]");
+                    writer.WriteLine("NumberOfEntries=0");
+                    writer.WriteLine("");
+                    writer.WriteLine("Version=2");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return (true);
         }
 
         public void AddToPlaylist(string path, bool isReading)
@@ -77,9 +103,12 @@ namespace MyWindowsMediaPlayer.Model
                         if (place == i)
                         {
                             int seconds = -1;
-                            writer.WriteLine("File" + NumberOfEntries + "=" + newFile.Name);
-                            writer.WriteLine("Title" + NumberOfEntries + "=" + newFile.Path);
-                            writer.WriteLine("Length" + NumberOfEntries + "=" + seconds);                    }
+                            writer.WriteLine("File" + NumberOfEntries + "=" + newFile.Path);
+                            writer.WriteLine("Title" + NumberOfEntries + "=" + newFile.Name);
+                            writer.WriteLine("Length" + NumberOfEntries + "=" + seconds);
+                            writer.WriteLine("");
+                        }
+                        writer.WriteLine(line);
                     }
                 }
                 File.Replace(".tempFile", this.Path, this.Path + ".bak");
@@ -137,6 +166,12 @@ namespace MyWindowsMediaPlayer.Model
                 throw new Exception("Bad playlist format (bad NumberOfEntries)");
         }
 
+        public bool Empty()
+        {
+            if (NumberOfEntries <= 0)
+                return (true);
+            return (false);
+        }
         public virtual string ToString()
         {
             return (Name);

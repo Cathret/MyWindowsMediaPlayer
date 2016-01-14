@@ -73,6 +73,7 @@
     <Compile Include="Model\Playlist.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelNewPlaylist.cs" />
     <Compile Include="ViewModel\ViewModelPlaylist.cs" />
     <Compile Include="ViewModel\ViewModelPlayer.cs" />
     <Compile Include="View\NewPlaylistWindow.xaml.cs">

@@ -13,7 +13,7 @@ namespace MyWindowsMediaPlayer.ViewModel
 {
     public class ViewModelPlaylist : ViewModelBase
     {
-        static public string PathPlaylist = ".\\playlists\\";
+        readonly string PathPlaylist = Playlist.PathPlaylist;
         public  Playlist    playlist { get; set; }
 
         private void fillList(ListBox listPlaylist)
