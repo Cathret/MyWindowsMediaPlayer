@@ -30,6 +30,11 @@ namespace MyWindowsMediaPlayer.View
             ViewModelNewPlaylist context = this.DataContext as ViewModelNewPlaylist;
 #warning namePlaylist = valueFromTextBox;
             string namePlaylist = TextNamePlaylist.Text;
+            if (namePlaylist == null || namePlaylist == "")
+            {
+                MessageBox.Show("Donnez un nom à votre playlist", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (context.CreatePlaylist(namePlaylist + ".pls", ListFilesPlaylist.Items.Cast<string>().ToList()))
                 this.Close();
         }

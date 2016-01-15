@@ -9,6 +9,7 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+        <TextBlock Text="Nom playlist :" Grid.Row="0" Margin="10,8,10,7"/>
         <TextBox x:Name="TextNamePlaylist" Grid.Row="0" Margin="100,5,10,5"/>
         <Button Content="Selectionner les fichiers" Click="LookForFiles" Grid.Row="1" Margin="50,5,50,5" Foreground="Black" BorderBrush="Black"/>
         <ListBox x:Name="ListFilesPlaylist" Grid.Row="2" Margin="10"/>

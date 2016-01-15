@@ -25,10 +25,8 @@
                 <MenuItem Header="_Ajouter à la playlist.." Command="{Binding AddToPlaylist}" CommandParameter="{Binding}"/>
                 <MenuItem Header="_Supprimer de la playlist" Command="{Binding DeleteFromPlaylist}" CommandParameter="{Binding}"/>
                 <Separator/>
-                <MenuItem Header="_Modifier la playlist.." Command="{Binding ModifyPlaylist}"/>
                 <MenuItem Header="_Supprimer la playlist.." Command="{Binding DeletePlaylist}"/>
             </MenuItem>
-            <MenuItem Header="_Bibliothèque" Command="{Binding OpenBibliotheque}" Background="#FFE2E2E2"/>
         </Menu>
 
         <MediaElement x:Name="MediaElementPlayer" LoadedBehavior="Manual" Stretch="Uniform" Grid.Row="1"
