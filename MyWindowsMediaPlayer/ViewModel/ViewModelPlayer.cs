@@ -41,7 +41,7 @@ namespace MyWindowsMediaPlayer.ViewModel
         public MediaElement _media = null;
         #endregion
 
-        public ViewModelPlayer(Playlist playlist, MediaElement media)
+        public ViewModelPlayer(MediaElement media)
         {
             OpenFile = new RelayCommand(PlayerCommands.OpenFile_Execute, PlayerCommands.OpenFile_CanExecute);
             OpenRecent = new RelayCommand(PlayerCommands.OpenRecent_Execute, PlayerCommands.OpenRecent_CanExecute);
@@ -59,7 +59,6 @@ namespace MyWindowsMediaPlayer.ViewModel
 
             OpenBibliotheque = new RelayCommand(PlayerCommands.OpenBiblio_Execute, PlayerCommands.OpenBiblio_CanExecute);
 
-            _playlist = playlist;
             _media = media;
         }
 

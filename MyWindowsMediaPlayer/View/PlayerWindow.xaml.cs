@@ -13,12 +13,11 @@ namespace MyWindowsMediaPlayer.View
     public partial class PlayerWindow : Window
     {
         bool _bIsBoucle = false;
-        Playlist _playlist = null;
 
         public  PlayerWindow()
         {
             InitializeComponent();
-            this.DataContext = new ViewModelPlayer(_playlist, MediaElementPlayer);
+            this.DataContext = new ViewModelPlayer(MediaElementPlayer);
         }
 
         private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)
@@ -53,19 +52,20 @@ namespace MyWindowsMediaPlayer.View
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
             MediaElementPlayer.Stop();
-            if (_playlist != null && !_playlist.Empty())
+            ViewModelPlayer context = this.DataContext as ViewModelPlayer;
+            if (context._playlist != null && !context._playlist.Empty())
             {
-                int index = _playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
                 try
                 {
-                    if (_playlist.Files.Count > index + 1)
+                    if (context._playlist.Files.Count > index + 1)
                     {
-                        MediaElementPlayer.Source = new Uri(_playlist.Files[index + 1].Path);
+                        MediaElementPlayer.Source = new Uri(context._playlist.Files[index + 1].Path);
                         MediaElementPlayer.Play();
                     }
                     else if (_bIsBoucle)
                     {
-                        MediaElementPlayer.Source = new Uri(_playlist.Files[0].Path);
+                        MediaElementPlayer.Source = new Uri(context._playlist.Files[0].Path);
                         MediaElementPlayer.Play();
                     }
                 }
@@ -81,14 +81,15 @@ namespace MyWindowsMediaPlayer.View
         private void ClickPrevious(object sender, RoutedEventArgs e)
         {
             MediaElementPlayer.Stop();
-            if (_playlist != null && !_playlist.Empty())
+            ViewModelPlayer context = this.DataContext as ViewModelPlayer;
+            if (context._playlist != null && !context._playlist.Empty())
             {
-                int index = _playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
                 try
                 {
                     if (index > 0)
                     {
-                        MediaElementPlayer.Source = new Uri(_playlist.Files[index - 1].Path);
+                        MediaElementPlayer.Source = new Uri(context._playlist.Files[index - 1].Path);
                         MediaElementPlayer.Play();
                     }
                     else
@@ -104,18 +105,19 @@ namespace MyWindowsMediaPlayer.View
         private void ClickNext(object sender, RoutedEventArgs e)
         {
             MediaElementPlayer.Stop();
-            if (_playlist != null && !_playlist.Empty())
+            ViewModelPlayer context = this.DataContext as ViewModelPlayer;
+            if (context._playlist != null && !context._playlist.Empty())
             {
-                int index = _playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
                 try
                 {
-                    if (_playlist.Files.Count > index + 1)
+                    if (context._playlist.Files.Count > index + 1)
                     {
-                        MediaElementPlayer.Source = new Uri(_playlist.Files[index + 1].Path);
+                        MediaElementPlayer.Source = new Uri(context._playlist.Files[index + 1].Path);
                         MediaElementPlayer.Play();
                     }
                     else if (_bIsBoucle)
-                        MediaElementPlayer.Source = new Uri(_playlist.Files[0].Path);
+                        MediaElementPlayer.Source = new Uri(context._playlist.Files[0].Path);
                 }
                 catch (Exception ex)
                 {

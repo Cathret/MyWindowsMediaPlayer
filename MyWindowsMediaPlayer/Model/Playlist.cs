@@ -172,6 +172,7 @@ namespace MyWindowsMediaPlayer.Model
                 return (true);
             return (false);
         }
+
         public virtual string ToString()
         {
             return (Name);
