@@ -55,7 +55,7 @@ namespace MyWindowsMediaPlayer.View
             ViewModelPlayer context = this.DataContext as ViewModelPlayer;
             if (context._playlist != null && !context._playlist.Empty())
             {
-                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.OriginalString));
                 try
                 {
                     if (context._playlist.Files.Count > index + 1)
@@ -84,7 +84,7 @@ namespace MyWindowsMediaPlayer.View
             ViewModelPlayer context = this.DataContext as ViewModelPlayer;
             if (context._playlist != null && !context._playlist.Empty())
             {
-                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.OriginalString));
                 try
                 {
                     if (index > 0)
@@ -108,7 +108,7 @@ namespace MyWindowsMediaPlayer.View
             ViewModelPlayer context = this.DataContext as ViewModelPlayer;
             if (context._playlist != null && !context._playlist.Empty())
             {
-                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.ToString()));
+                int index = context._playlist.Files.FindIndex(x => x.Path.Equals(MediaElementPlayer.Source.OriginalString));
                 try
                 {
                     if (context._playlist.Files.Count > index + 1)
